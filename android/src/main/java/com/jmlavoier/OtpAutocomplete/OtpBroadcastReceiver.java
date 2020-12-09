@@ -17,7 +17,7 @@ public class OtpBroadcastReceiver extends BroadcastReceiver {
 
     private ReactApplicationContext mContext;
 
-    private static final String EVENT = "com.faizalshap.otpVerify:otpReceived";
+    private static final String EVENT = "com.jmlavoier.otpAutocomplete:otpReceived";
 
     public OtpBroadcastReceiver(ReactApplicationContext context) {
         mContext = context;

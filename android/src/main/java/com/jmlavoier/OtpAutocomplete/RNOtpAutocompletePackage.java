@@ -13,7 +13,7 @@ import com.facebook.react.bridge.JavaScriptModule;
 public class RNOtpAutocompletePackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Arrays.<NativeModule>asList(new RNOtpVerifyModule(reactContext));
+        return Arrays.<NativeModule>asList(new RNOtpAutocompleteModule(reactContext));
     }
 
     // Deprecated from RN 0.47

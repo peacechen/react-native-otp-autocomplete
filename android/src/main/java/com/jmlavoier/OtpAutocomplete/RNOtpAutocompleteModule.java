@@ -36,7 +36,7 @@ public class RNOtpAutocompleteModule extends ReactContextBaseJavaModule implemen
 
     @Override
     public String getName() {
-        return "RNOtpVerify";
+        return "RNOtpAutocomplete";
     }
 
     @ReactMethod

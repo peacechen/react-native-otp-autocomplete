@@ -1,23 +1,23 @@
 import { DeviceEventEmitter, NativeModules } from 'react-native';
 
-const RNOtpVerify = NativeModules.RNOtpVerify;
+const RNOtpAutocomplete = NativeModules.RNOtpAutocomplete;
 
-interface OtpVerify {
+interface OtpAutocomplete {
     getOtp: () => Promise<boolean>;
     getHash: () => Promise<string[]>;
     addListener: (handler: (value: string) => any) => import("react-native").EmitterSubscription;
     removeListener: () => void;
 }
 
-const OtpVerify: OtpVerify = {
-    getOtp: RNOtpVerify.getOtp,
-    getHash: RNOtpVerify.getHash,
+const OtpAutocomplete: OtpAutocomplete = {
+    getOtp: RNOtpAutocomplete.getOtp,
+    getHash: RNOtpAutocomplete.getHash,
 
     addListener: (handler) =>
         DeviceEventEmitter
-            .addListener('com.faizalshap.otpVerify:otpReceived', handler),
+            .addListener('com.jmlavoier.otpAutocomplete:otpReceived', handler),
 
-    removeListener: () => DeviceEventEmitter.removeAllListeners('com.faizalshap.otpVerify:otpReceived'),
+    removeListener: () => DeviceEventEmitter.removeAllListeners('com.jmlavoier.otpAutocomplete:otpReceived'),
 }
 
-export default OtpVerify;
+export default OtpAutocomplete;
