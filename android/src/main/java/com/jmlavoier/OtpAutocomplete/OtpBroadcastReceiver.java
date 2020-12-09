@@ -1,4 +1,4 @@
-package com.faizal.OtpVerify;
+package com.jmlavoier.OtpAutocomplete;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

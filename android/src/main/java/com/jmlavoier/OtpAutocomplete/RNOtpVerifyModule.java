@@ -1,9 +1,7 @@
-
-package com.faizal.OtpVerify;
+package com.jmlavoier.OtpAutocomplete;
 
 import android.content.BroadcastReceiver;
 import android.content.IntentFilter;
-// import android.support.annotation.NonNull;
 import androidx.annotation.NonNull;
 import android.util.Log;
 

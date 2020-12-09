@@ -1,5 +1,4 @@
-
-package com.faizal.OtpVerify;
+package com.jmlavoier.OtpAutocomplete;
 
 import java.util.Arrays;
 import java.util.Collections;
