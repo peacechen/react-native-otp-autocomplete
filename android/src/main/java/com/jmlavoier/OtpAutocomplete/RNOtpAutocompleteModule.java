@@ -20,13 +20,13 @@ import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
 
-public class RNOtpVerifyModule extends ReactContextBaseJavaModule implements LifecycleEventListener {
-    private static final String TAG = RNOtpVerifyModule.class.getSimpleName();
+public class RNOtpAutocompleteModule extends ReactContextBaseJavaModule implements LifecycleEventListener {
+    private static final String TAG = RNOtpAutocompleteModule.class.getSimpleName();
     private final ReactApplicationContext reactContext;
     private BroadcastReceiver mReceiver;
     private boolean isReceiverRegistered = false;
 
-    public RNOtpVerifyModule(ReactApplicationContext reactContext) {
+    public RNOtpAutocompleteModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
         mReceiver = new OtpBroadcastReceiver(reactContext);
