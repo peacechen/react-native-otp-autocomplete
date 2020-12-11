@@ -1,4 +1,4 @@
-import { DeviceEventEmitter, NativeModules } from 'react-native';
+import { DeviceEventEmitter, NativeModules, Platform } from 'react-native';
 
 const RNOtpAutocomplete = NativeModules.RNOtpAutocomplete;
 
@@ -9,7 +9,7 @@ interface OtpAutocomplete {
     removeListener: () => void;
 }
 
-const OtpAutocomplete: OtpAutocomplete = {
+const OtpAutocomplete: OtpAutocomplete = Platform.OS === 'android' ? {
     getOtp: RNOtpAutocomplete.getOtp,
     getHash: RNOtpAutocomplete.getHash,
 
@@ -18,6 +18,12 @@ const OtpAutocomplete: OtpAutocomplete = {
             .addListener('com.jmlavoier.otpAutocomplete:otpReceived', handler),
 
     removeListener: () => DeviceEventEmitter.removeAllListeners('com.jmlavoier.otpAutocomplete:otpReceived'),
+} : {
+    // Mock to not break in IOS
+    getOtp: new Promise((res) => res(null)),
+    getHash: new Promise((res) => res(null)),
+    addListener: () => {},
+    removeListener: () => {},
 }
 
 export default OtpAutocomplete;
