@@ -9,21 +9,15 @@ interface OtpAutocomplete {
     removeListener: () => void;
 }
 
-const OtpAutocomplete: OtpAutocomplete = RNOtpAutocomplete ? {
-    getOtp: RNOtpAutocomplete.getOtp,
-    getHash: RNOtpAutocomplete.getHash,
+const OtpAutocomplete: OtpAutocomplete = {
+    getOtp: RNOtpAutocomplete ? RNOtpAutocomplete.getOtp : () => new Promise((res: (arg0: null) => any) => res(null)),
+    getHash: RNOtpAutocomplete ? RNOtpAutocomplete.getHash : () => new Promise((res: (arg0: null) => any) => res(null)),
 
     addListener: (handler) =>
         DeviceEventEmitter
             .addListener('com.jmlavoier.otpAutocomplete:otpReceived', handler),
 
     removeListener: () => DeviceEventEmitter.removeAllListeners('com.jmlavoier.otpAutocomplete:otpReceived'),
-} : {
-    // Mock to not break in IOS
-    getOtp: new Promise((res) => res(null)),
-    getHash: new Promise((res) => res(null)),
-    addListener: () => {},
-    removeListener: () => {},
-}
+};
 
 export default OtpAutocomplete;
