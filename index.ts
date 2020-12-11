@@ -1,15 +1,15 @@
-import { DeviceEventEmitter, NativeModules, Platform } from 'react-native';
+import { DeviceEventEmitter, NativeModules } from 'react-native';
 
-const RNOtpAutocomplete = NativeModules.RNOtpAutocomplete;
+const RNOtpAutocomplete = NativeModules?.RNOtpAutocomplete || undefined;
 
 interface OtpAutocomplete {
     getOtp: () => Promise<boolean>;
     getHash: () => Promise<string[]>;
-    addListener: (handler: (value: string) => any) => import("react-native").EmitterSubscription;
+    addListener: (handler: (value: string) => any) => import('react-native').EmitterSubscription;
     removeListener: () => void;
 }
 
-const OtpAutocomplete: OtpAutocomplete = Platform.OS === 'android' ? {
+const OtpAutocomplete: OtpAutocomplete = RNOtpAutocomplete ? {
     getOtp: RNOtpAutocomplete.getOtp,
     getHash: RNOtpAutocomplete.getHash,
 
