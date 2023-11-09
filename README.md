@@ -1,6 +1,7 @@
 
 # react-native-otp-autocomplete
-This library was forked from [react-native-otp-verify](https://github.com/faizalshap/react-native-otp-verify) that was deprecated.
+
+This is a fork of https://github.com/jmlavoier/react-native-otp-autocomplete and published as a separate package on [npmjs.com](https://www.npmjs.com/package/@peacechen/react-native-otp-autocomplete to unlock the peer dependencies. That package was forked from [react-native-otp-verify](https://github.com/faizalshap/react-native-otp-verify) which was deprecated.
 
 It uses Automatic SMS Verification with the SMS Retriever API.
 With the SMS Retriever API, you can perform SMS-based user verification in your Android app automatically, without requiring the user to manually type verification codes, and without requiring any extra app permissions.
@@ -13,12 +14,12 @@ With the SMS Retriever API, you can perform SMS-based user verification in your 
 
 ## Getting started
 
-`$ npm install react-native-otp-autocomplete --save`
+`$ npm install @peacechen/react-native-otp-autocomplete --save`
  or
-`$ yarn react-native-otp-autocomplete`
+`$ yarn @peacechen/react-native-otp-autocomplete`
 
 ### Using React Native Link (React Native 0.59 and lower)
-`$ react-native link react-native-otp-autocomplete`
+`$ react-native link @peacechen/react-native-otp-autocomplete`
 
 ### Manual installation (Android)
 
@@ -27,17 +28,17 @@ With the SMS Retriever API, you can perform SMS-based user verification in your 
   - Add `new RNOtpAutocompletePackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```gradle
-  	include ':react-native-otp-autocomplete'
-  	project(':react-native-otp-autocomplete').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-otp-autocomplete/android')
+  	include ':@peacechen/react-native-otp-autocomplete'
+  	project(':@peacechen/react-native-otp-autocomplete').projectDir = new File(rootProject.projectDir, 	'../node_modules/@peacechen/react-native-otp-autocomplete/android')
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```gradle
-      compile project(':react-native-otp-autocomplete')
+      compile project(':@peacechen/react-native-otp-autocomplete')
   	```
 
 ## Usage
 ```javascript
-import OtpAutocomplete from 'react-native-otp-autocomplete';
+import OtpAutocomplete from '@peacechen/react-native-otp-autocomplete';
 
 const getHash = () =>
     OtpAutocomplete.getHash()

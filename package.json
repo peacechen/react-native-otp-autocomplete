@@ -1,6 +1,6 @@
 {
-  "name": "react-native-otp-autocomplete",
-  "version": "1.0.7",
+  "name": "@peacechen/react-native-otp-autocomplete",
+  "version": "1.0.8",
   "description": "React native sms verification without additional permissions.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,7 +22,7 @@
     "url": "git@github.com:jmlavoier/react-native-otp-autocomplete.git"
   },
   "peerDependencies": {
-    "react-native": "^0.57.3"
+    "react-native": "*"
   },
   "devDependencies": {
     "@types/react-native": "^0.57.6",
