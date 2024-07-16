@@ -1,6 +1,6 @@
 {
   "name": "@peacechen/react-native-otp-autocomplete",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "React native sms verification without additional permissions.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

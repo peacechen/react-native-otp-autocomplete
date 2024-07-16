@@ -63,10 +63,18 @@ public class RNOtpAutocompleteModule extends ReactContextBaseJavaModule implemen
     private void registerReceiverIfNecessary(BroadcastReceiver receiver) {
         if (getCurrentActivity() == null) return;
         try {
-            getCurrentActivity().registerReceiver(
+            if (Build.VERSION.SDK_INT >= Build.VERSION.TIRAMISU) {
+                getCurrentActivity().registerReceiver(
+                    receiver,
+                    new IntentFilter(SmsRetriever.SMS_RETRIEVED_ACTION),
+                    Context.RECEIVER_NOT_EXPORTED
+                );
+            } else {
+                getCurrentActivity().registerReceiver(
                     receiver,
                     new IntentFilter(SmsRetriever.SMS_RETRIEVED_ACTION)
-            );
+                );
+            }
             Log.d(TAG, "Receiver Registered");
             isReceiverRegistered = true;
         } catch (Exception e) {
